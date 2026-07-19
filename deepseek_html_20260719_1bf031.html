@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Переходник для подруги</title>
+    <style>
+        /* Общий сброс и база */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fce4ec 0%, #f8e8ff 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            padding: 16px;
+            margin: 0;
+        }
+
+        .card {
+            max-width: 460px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 56px 56px 48px 48px;
+            padding: 32px 24px 40px;
+            box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.2),
+                        0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+            transition: transform 0.2s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: scale(1.01);
+        }
+
+        /* Аватар с фотографией */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px -8px rgba(192, 132, 252, 0.4);
+            border: 3px solid white;
+            flex-shrink: 0;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e1a2b;
+            letter-spacing: -0.3px;
+            margin-bottom: 6px;
+        }
+
+        .subhead {
+            font-size: 16px;
+            color: #4a3f5e;
+            margin-bottom: 28px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        /* Стили кнопок */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 6px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 18px;
+            border-radius: 100px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            background: white;
+            color: #1e1a2b;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.04);
+            cursor: pointer;
+            width: 100%;
+            letter-spacing: 0.2px;
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        /* Кнопка основного ТГК */
+        .btn-primary {
+            background: #27a2f8;
+            color: white;
+            box-shadow: 0 8px 20px -6px #27a2f880;
+        }
+        .btn-primary:hover {
+            background: #1c8fe0;
+            box-shadow: 0 12px 24px -8px #27a2f8b0;
+        }
+
+        /* Кнопка приват */
+        .btn-secondary {
+            background: #2b2d42;
+            color: white;
+            box-shadow: 0 8px 20px -6px #2b2d4280;
+        }
+        .btn-secondary:hover {
+            background: #1e1f30;
+        }
+
+        /* Кнопка анон */
+        .btn-anon {
+            background: #f4f0ff;
+            color: #2b1b4a;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 0 0 1px #d9cef0;
+        }
+        .btn-anon:hover {
+            background: #ece4ff;
+        }
+
+        /* Иконки внутри кнопок — эмодзи/символы */
+        .btn-icon {
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .divider {
+            margin: 24px 0 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #8a7aa3;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        .footer-note {
+            font-size: 13px;
+            color: #6b5b83;
+            margin-top: 22px;
+            opacity: 0.7;
+            letter-spacing: 0.2px;
+            border-top: 1px dashed rgba(0,0,0,0.05);
+            padding-top: 18px;
+        }
+
+        /* Адаптив под маленькие экраны */
+        @media (max-width: 420px) {
+            .card {
+                padding: 24px 16px 30px;
+                border-radius: 40px;
+            }
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 14px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <!-- Фотография вместо сердечка -->
+    <div class="avatar">
+        <img src="photo.jpg" alt="Фото для подруги" />
+    </div>
+
+    <h1>Твой переходник ✨</h1>
+    <p class="subhead">для моей любимой подруги</p>
+
+    <!-- Основные ссылки -->
+    <div class="btn-group">
+        <a href="https://t.me/+6rPbWB479L85ZDUy" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span class="btn-icon">📢</span> Основной ТГК
+        </a>
+        <a href="https://t.me/+dfMK6j2eOjNkMjBi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <span class="btn-icon">🔒</span> Приват
+        </a>
+    </div>
+
+    <!-- Разделитель -->
+    <div class="divider">✦ анонимка ✦</div>
+
+    <!-- Кнопка анонимного сообщения -->
+    <a href="https://t.me/anonaskbot?start=cdefu" target="_blank" rel="noopener noreferrer" class="btn btn-anon">
+        <span class="btn-icon">🕊️</span> Написать анонимно
+    </a>
+
+    <div class="footer-note">
+        нажми — и сразу перейдёшь 💬
+    </div>
+</div>
+
+<script>
+    (function() {
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                this.style.transition = 'transform 0.08s';
+                this.style.transform = 'scale(0.96)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 90);
+            });
+        });
+    })();
+</script>
+
+</body>
+</html>
